@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Testscene.unity
+- path: Assets/ColorTracker/Demos/Scenes/05 Fruits Game.unity
   isLoaded: 1
   isActive: 1
