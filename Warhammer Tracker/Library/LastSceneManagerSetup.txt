@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/Warhammer_Tracker_Demo.unity
-  isLoaded: 1
-  isActive: 1
