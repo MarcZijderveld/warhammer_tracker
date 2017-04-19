@@ -35,9 +35,6 @@ public class ColorPicker : MonoBehaviour
             if (!collie.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 2000f))
                 return;
 
-            Debug.DrawRay(ray.origin, ray.direction * 5000000, Color.green);
-            //Debug.LogError("Stop!");
-
             Renderer rend = hit.transform.GetComponent<Renderer>();
             MeshCollider meshCollider = hit.collider as MeshCollider;
 
@@ -50,7 +47,7 @@ public class ColorPicker : MonoBehaviour
             pixelUV.y *= 720f;
 
             Color32 color = (Color32)_texture.GetPixel((int)pixelUV.x, (int)pixelUV.y);
-            ctp.colorTargets.Add(new Vexpot.ColorTarget(color, 20f));
+            ctp.colorTargets.Add(new Vexpot.ColorTarget(color, 10f));
             ctp.StopColorTracker();
             ctp.UpdateColorTargets();
             ctp.StartColorTracker();

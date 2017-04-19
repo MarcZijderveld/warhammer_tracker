@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitManager : MonoBehaviour {
-
-	public static List<UnitInfo> units = new List<UnitInfo>();
+   
+	public List<Unit> unitTypes = new List<Unit>();
 
 	// Use this for initialization
 	void Start () {
