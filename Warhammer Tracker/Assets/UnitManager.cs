@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnitManager : MonoBehaviour {
 
-	public List<UnitInfo> units = new List<UnitInfo>();
+	public static List<UnitInfo> units = new List<UnitInfo>();
 
 	// Use this for initialization
 	void Start () {

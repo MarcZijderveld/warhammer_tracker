@@ -99,6 +99,7 @@
     <Compile Include="Assets\ColorTracker\Scripts\Integration\ScreenInput.cs" />
     <Compile Include="Assets\ColorTracker\Scripts\Integration\TouchlessInputModule.cs" />
     <Compile Include="Assets\ColorTracker\Scripts\Integration\VideoCaptureRenderer.cs" />
+    <Compile Include="Assets\UnitDropDown.cs" />
     <Compile Include="Assets\UnitInfo.cs" />
     <Compile Include="Assets\UnitManager.cs" />
   </ItemGroup>
