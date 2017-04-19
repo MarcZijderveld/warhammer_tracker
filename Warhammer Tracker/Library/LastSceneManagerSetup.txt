@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/ColorTracker/Demos/Scenes/05 Fruits Game.unity
+- path: Assets/Scenes/Warhammer_Tracker_Demo.unity
   isLoaded: 1
   isActive: 1
