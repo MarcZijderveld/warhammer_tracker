@@ -87,4 +87,5 @@ public class UnitConstructor : MonoBehaviour {
         panel_constructor.SetActive(false);
         panel_log.SetActive(true);
     }
+
 }
