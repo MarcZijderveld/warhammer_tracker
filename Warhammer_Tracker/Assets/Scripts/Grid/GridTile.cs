@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridTile : MonoBehaviour {
+public class GridTile  {
 
-    private Vector2 position;
-    private UnitGroup unit;
+    public Vector2 position;
+    public UnitGroup unit;
 
 	public GridTile(float x, float y)
     {
         this.position = new Vector2(x, y);
     }
+
+    
 }

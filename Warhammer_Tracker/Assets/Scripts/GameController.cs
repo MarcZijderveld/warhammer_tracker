@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     public ColorTrackerPanel ctp;
     private UnitFactory _factory;
 
+    public float tolerance;
+
     // Use this for initialization
     void Start()
     {
@@ -45,7 +47,7 @@ public class GameController : MonoBehaviour
             pixelUV.y *= 720f;
 
             Color32 color = (Color32)_texture.GetPixel((int)pixelUV.x, (int)pixelUV.y);
-            ctp.colorTargets.Add(new Vexpot.ColorTarget(color, 10f));
+            ctp.colorTargets.Add(new Vexpot.ColorTarget(color, tolerance));
             ctp.StopColorTracker();
             ctp.UpdateColorTargets();
             ctp.StartColorTracker();

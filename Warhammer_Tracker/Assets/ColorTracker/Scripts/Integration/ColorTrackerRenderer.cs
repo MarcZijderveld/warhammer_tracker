@@ -31,6 +31,8 @@ namespace Vexpot.Integration
         private List<GameObject> _graphics;
         private Vector3 _reusableScreenPosition;
 
+        private UnitFactory _uFactory;
+
         void Awake()
         {
             if (ValidateComponents())
@@ -38,6 +40,11 @@ namespace Vexpot.Integration
                 _graphics = new List<GameObject>();
                 _reusableScreenPosition = new Vector3();
             }
+        }
+
+        void Start()
+        {
+           _uFactory = Hierarchy.GetComponentWithTag<UnitFactory>("UnitManager");
         }
 
         private bool ValidateComponents()
@@ -135,6 +142,7 @@ namespace Vexpot.Integration
                 if (target.state == TrackingState.Tracked)
                 {
                     CoordinateMapper.ConvertInputToScreen(_tracker.input, target.center, ref _reusableScreenPosition);
+                    _uFactory.UpdateUnit(_tracker.colorTargets[i].color, _reusableScreenPosition);
                     CoordinateMapper.ConvertScreenToUI(_reusableScreenPosition, actual.GetComponent<RectTransform>());
                     actual.SetActive(true);
                 }
