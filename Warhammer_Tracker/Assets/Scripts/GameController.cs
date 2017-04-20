@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
         if (!_texture)
         {
             _texture = videoRenderer.getWebCamTexture();
-            Debug.Log(_texture.width);
+//            Debug.Log(_texture.width);
         }
         if (Input.GetMouseButtonDown(1))
         {

@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,9 +40,6 @@ public class UnitConstructor : MonoBehaviour {
 
         units = new List<string>();
         foreach (string name in unitNames) {
-            //DvdS: Voor de mooi, werkend maken als er tijd is
-            //string newName = name.Replace("_", " ");
-            //units.Add(newName);
             units.Add(name);
         }
         units.Insert(0, "-select-");
@@ -73,6 +70,7 @@ public class UnitConstructor : MonoBehaviour {
             ug.info = _uManager.GetUnitInfoByType(ug.type);
             _UFactory.AddUnit(ug);
             selectedUnit.color = ug.color;
+            Debug.Log("Changed");
         }
         else
         {
