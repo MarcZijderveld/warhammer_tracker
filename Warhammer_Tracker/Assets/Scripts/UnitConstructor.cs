@@ -17,10 +17,16 @@ public class UnitConstructor : MonoBehaviour {
     private UnitManager _uManager;
     private UnitFactory _UFactory;
 
-    public void SetActiveUnit(GameObject group)
+    public void SetActiveUnit(GameObject group, bool select)
     {
         _active = group;
         panel_constructor.SetActive(true);
+        UnitGroup ug = group.GetComponent<UnitGroup>();
+
+        if(select)
+        {
+            selectedUnit.text = ug.type.ToString();
+        }
     }
 
 	void Start ()
@@ -84,5 +90,4 @@ public class UnitConstructor : MonoBehaviour {
         panel_constructor.SetActive(false);
         panel_log.SetActive(true);
     }
-
 }

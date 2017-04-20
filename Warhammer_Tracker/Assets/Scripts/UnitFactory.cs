@@ -22,7 +22,7 @@ public class UnitFactory : MonoBehaviour {
         UnitGroup ug = go.AddComponent<UnitGroup>();
 
         ug.color = color;
-        _dropdown.SetActiveUnit(go);
+        _dropdown.SetActiveUnit(go, false);
     }
 
     public void AddUnit(UnitGroup unit)
@@ -42,6 +42,21 @@ public class UnitFactory : MonoBehaviour {
                     _gManager.SetGridUnit(ug.gridPosition, ug);
                    
                     _logController.addMessages(ug.gridPosition, ug.type);
+                }
+            }
+        }
+    }
+
+    public void UpdateUnit(Color32 color, UnitType type)
+    {
+        foreach (UnitGroup ug in _activeUnits)
+        {
+            if (ug.color.Equals(color))
+            {
+                if (ug.type != type)
+                {
+                    ug.type = type;
+                    _gManager.SetGridUnit(ug.gridPosition, ug);
                 }
             }
         }

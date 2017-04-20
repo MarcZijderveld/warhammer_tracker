@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public ColorTrackerPanel ctp;
     private UnitFactory _factory;
     private UnitConstructor _constructor;
+    private GridManager _gManager;
 
     public float tolerance;
 
@@ -20,6 +21,7 @@ public class GameController : MonoBehaviour
         _texture = videoRenderer.getWebCamTexture();
         _factory = Hierarchy.GetComponentWithTag<UnitFactory>("UnitManager");
         _constructor = Hierarchy.GetComponentWithTag<UnitConstructor>("DropDownController");
+        _gManager = Hierarchy.GetComponentWithTag<GridManager>("GridManager");
     }
 
     // Update is called once per frame
@@ -28,7 +30,7 @@ public class GameController : MonoBehaviour
         if (!_texture)
         {
             _texture = videoRenderer.getWebCamTexture();
-//            Debug.Log(_texture.width);
+            //            Debug.Log(_texture.width);
         }
         if (Input.GetMouseButtonDown(1))
         {
@@ -56,6 +58,19 @@ public class GameController : MonoBehaviour
 
             _factory.CreateUnit(color);
             _constructor.ColorSelected(color);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            UnitGroup ug = null;
+            if (_gManager.GetGridUnit(_gManager.GetGridPos(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0))) != null)
+            {
+                ug = _gManager.GetGridUnit(_gManager.GetGridPos(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)));
+            }
+            if (ug != null)
+            {
+                _constructor.SetActiveUnit(ug.gameObject, true);
+            }
         }
     }
 }

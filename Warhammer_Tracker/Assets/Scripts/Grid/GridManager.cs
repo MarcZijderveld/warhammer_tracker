@@ -34,7 +34,6 @@ public class GridManager : MonoBehaviour {
 
     public Vector2 GetGridPos(Vector3 screenCord)
     {
-    
          Vector2 moo =  new Vector2(Mathf.Ceil((screenCord.x - (Screen.width - webcamWidth)) / tileWidth), Mathf.Ceil(screenCord.y / tileHeight));
          return moo;
     }
@@ -42,5 +41,12 @@ public class GridManager : MonoBehaviour {
     public void SetGridUnit(Vector2 gridPos, UnitGroup unit)
     {
         tiles[gridPos].unit = unit;
+    }
+
+    public UnitGroup GetGridUnit(Vector2 gridPos)
+    {
+        if(tiles.ContainsKey(gridPos))
+            return tiles[gridPos].unit;
+        return null;
     }
 }
