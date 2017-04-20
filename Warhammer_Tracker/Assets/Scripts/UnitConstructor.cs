@@ -84,15 +84,7 @@ public class UnitConstructor : MonoBehaviour {
     public void StartGame()
     {
         //DvdS: Something which will initialize the actual tracking?
-
         panel_constructor.SetActive(false);
         panel_log.SetActive(true);
-    }
-    
-    //DvdS: Has this to be here?
-    public void UpdateLog()
-    {
-        //Unit
-        //Endposition 
     }
 }
