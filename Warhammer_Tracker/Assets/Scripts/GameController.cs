@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public VideoCaptureRenderer videoRenderer;
     public ColorTrackerPanel ctp;
     private UnitFactory _factory;
+    private UnitConstructor _constructor;
 
     public float tolerance;
 
@@ -17,7 +18,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _texture = videoRenderer.getWebCamTexture();
-        _factory = Hierarchy.GetComponentWithTag<UnitFactory>("UnitManager"); 
+        _factory = Hierarchy.GetComponentWithTag<UnitFactory>("UnitManager");
+        _constructor = Hierarchy.GetComponentWithTag<UnitConstructor>("DropDownController");
     }
 
     // Update is called once per frame
@@ -53,6 +55,7 @@ public class GameController : MonoBehaviour
             ctp.StartColorTracker();
 
             _factory.CreateUnit(color);
+            _constructor.ColorSelected(color);
         }
     }
 }
