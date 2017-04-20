@@ -16,6 +16,13 @@ public enum UnitType {
 }
 
 [System.Serializable]
+public class UnitCollection
+{
+    public UnitType type;
+    public UnitInfo info;
+}
+
+[System.Serializable]
 public class UnitInfo : MonoBehaviour {
 	public List<string> equipment = new List<string> ();
     public List<string> mount = new List<string>();
@@ -30,23 +37,6 @@ public class UnitInfo : MonoBehaviour {
 				initiative,
 				attack,
 				leadership;
-    private Vector2 _gridPosition;
 
-    public Vector2 gridPosition
-    {
-        get
-        {
-            return _gridPosition;
-        }
-        set
-        {
-            _gridPosition = gridPosition;
-        }
-    }
-}
-[System.Serializable]
-public class Unit
-{
-    public UnitType type;
-    public UnitInfo info;
+  
 }

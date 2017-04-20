@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vexpot.Integration;
 
-public class ColorPicker : MonoBehaviour
+public class GameController : MonoBehaviour
 {
 
     private WebCamTexture _texture;
     public VideoCaptureRenderer videoRenderer;
     public ColorTrackerPanel ctp;
+    private UnitFactory _factory;
 
     // Use this for initialization
     void Start()
     {
         _texture = videoRenderer.getWebCamTexture();
+        _factory = Hierarchy.GetComponentWithTag<UnitFactory>("UnitManager"); 
     }
 
     // Update is called once per frame
@@ -26,10 +28,7 @@ public class ColorPicker : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-
             MeshCollider collie = videoRenderer.gameObject.GetComponentInChildren<MeshCollider>();
 
             if (!collie.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 2000f))
@@ -42,7 +41,6 @@ public class ColorPicker : MonoBehaviour
                 return;
 
             Vector2 pixelUV = hit.textureCoord;
-            Debug.Log(pixelUV);
             pixelUV.x *= 1280f;
             pixelUV.y *= 720f;
 
@@ -51,7 +49,8 @@ public class ColorPicker : MonoBehaviour
             ctp.StopColorTracker();
             ctp.UpdateColorTargets();
             ctp.StartColorTracker();
-            return;
+
+            _factory.CreateUnit(color);
         }
     }
 }

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class UnitManager : MonoBehaviour {
    
-	public List<Unit> unitTypes = new List<Unit>();
+	public List<UnitCollection> unitTypes = new List<UnitCollection>();
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public UnitInfo GetUnitInfoByType(UnitType type)
+    {
+        foreach (UnitCollection uc in unitTypes)
+        {
+            if (uc.type == type)
+                return uc.info;
+        }
+
+        return null;
+    }
 }
