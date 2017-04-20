@@ -7,11 +7,13 @@ public class UnitFactory : MonoBehaviour {
     private List<UnitGroup> _activeUnits = new List<UnitGroup>();
     private UnitConstructor _dropdown;
     private GridManager _gManager;
+    private LogController _logController;
 
     private void Start()
     {
         _dropdown = Hierarchy.GetComponentWithTag<UnitConstructor>("DropDownController");
         _gManager = Hierarchy.GetComponentWithTag<GridManager>("GridManager");
+        _logController = Hierarchy.GetComponentWithTag<LogController>("LogController");
     }
 
     public void CreateUnit(Color32 color)
@@ -38,6 +40,8 @@ public class UnitFactory : MonoBehaviour {
                 {
                     ug.gridPosition = _gManager.GetGridPos(position);
                     _gManager.SetGridUnit(ug.gridPosition, ug);
+                   
+                    _logController.addMessages(ug.gridPosition, ug.type);
                 }
             }
         }

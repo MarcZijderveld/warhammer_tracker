@@ -70,7 +70,6 @@ public class UnitConstructor : MonoBehaviour {
             ug.info = _uManager.GetUnitInfoByType(ug.type);
             _UFactory.AddUnit(ug);
             selectedUnit.color = ug.color;
-            Debug.Log("Changed");
         }
         else
         {

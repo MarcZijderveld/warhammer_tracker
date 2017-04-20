@@ -36,7 +36,6 @@ public class GridManager : MonoBehaviour {
     {
     
          Vector2 moo =  new Vector2(Mathf.Ceil((screenCord.x - (Screen.width - webcamWidth)) / tileWidth), Mathf.Ceil(screenCord.y / tileHeight));
-         Debug.Log(moo);
          return moo;
     }
 
