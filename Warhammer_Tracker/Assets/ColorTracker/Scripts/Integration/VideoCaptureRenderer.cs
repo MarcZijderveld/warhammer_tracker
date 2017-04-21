@@ -45,7 +45,7 @@ namespace Vexpot.Integration
                     _device = WebCamTexture.devices[0];
                 }
 
-                _texture = new WebCamTexture(_device.name);
+                _texture = new WebCamTexture(_device.name, 1280, 720, 60);
                 _screenMaterial.mainTexture = _texture;
                 _texture.Play();
             }

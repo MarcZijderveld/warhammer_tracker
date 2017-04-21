@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
             RaycastHit hit;
             MeshCollider collie = videoRenderer.gameObject.GetComponentInChildren<MeshCollider>();
 
-            if (!collie.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 2000f))
+            if (!collie.Raycast(Camera.main.ScreenPointToRay(new Vector3(Input.mousePosition.x + 50, Input.mousePosition.y, Input.mousePosition.z)), out hit, 2000f))
                 return;
 
             Renderer rend = hit.transform.GetComponent<Renderer>();
