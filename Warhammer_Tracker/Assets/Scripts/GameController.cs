@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public ColorTrackerPanel ctp;
     private UnitFactory _factory;
     private UnitConstructor _constructor;
+    private LogController _logController;
     private GridManager _gManager;
 
     public float tolerance;
@@ -21,6 +22,7 @@ public class GameController : MonoBehaviour
         _texture = videoRenderer.getWebCamTexture();
         _factory = Hierarchy.GetComponentWithTag<UnitFactory>("UnitManager");
         _constructor = Hierarchy.GetComponentWithTag<UnitConstructor>("DropDownController");
+        _logController = Hierarchy.GetComponentWithTag<LogController>("LogController");
         _gManager = Hierarchy.GetComponentWithTag<GridManager>("GridManager");
     }
 
@@ -70,6 +72,8 @@ public class GameController : MonoBehaviour
             if (ug != null)
             {
                 _constructor.SetActiveUnit(ug.gameObject, true);
+                _logController.updateStats(ug.info);
+
             }
         }
     }

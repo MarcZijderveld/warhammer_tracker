@@ -20,7 +20,10 @@ public class UnitConstructor : MonoBehaviour {
     public void SetActiveUnit(GameObject group, bool select)
     {
         _active = group;
-        panel_constructor.SetActive(true);
+        if(select == false)
+        {
+            panel_constructor.SetActive(true);
+        }
         UnitGroup ug = group.GetComponent<UnitGroup>();
 
         if(select)

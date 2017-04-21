@@ -41,7 +41,7 @@ public class UnitFactory : MonoBehaviour {
                     ug.gridPosition = _gManager.GetGridPos(position);
                     _gManager.SetGridUnit(ug.gridPosition, ug);
                    
-                    _logController.addMessages(ug.gridPosition, ug.type);
+                    _logController.addMessages(ug.gridPosition, ug);
                 }
             }
         }
